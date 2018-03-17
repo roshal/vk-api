@@ -1,0 +1,10 @@
+scripts:
+ #
+ build: babel --no-comments --minified -d output source
+ clear: rm -fr output/*
+ lint: eslint .
+ start: node -r dotenv/config output/main.js
+ #
+ develop: nodemon -w source/ -x nps clear "build -s inline" start
+ rerun: nodemon -w output/ -x nps start
+ watch: nps clear "build -w -s"
